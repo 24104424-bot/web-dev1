@@ -3,14 +3,7 @@ const loginForm = document.getElementById('loginForm');
 if (loginForm) {
   loginForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    
-    if (email && password) {
-      alert('Login successful! Welcome back!');
- 
-    }
+    window.location.href = 'home.html';
   });
 }
 
@@ -19,8 +12,6 @@ if (registerForm) {
   registerForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     
@@ -29,12 +20,10 @@ if (registerForm) {
       return;
     }
     
-    if (username && email && password) {
-      alert('Account created successfully! Welcome to GambleBox!');
-
-    }
+    window.location.href = 'home.html';
   });
 }
+
 document.addEventListener('DOMContentLoaded', function() {
   const card = document.querySelector('.card');
   if (card) {
@@ -43,5 +32,31 @@ document.addEventListener('DOMContentLoaded', function() {
       card.style.transition = 'opacity 0.6s ease';
       card.style.opacity = '1';
     }, 100);
+  }
+  
+  const homeCards = document.querySelectorAll('.home-card');
+  if (homeCards.length > 0) {
+    homeCards.forEach(function(card, index) {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      setTimeout(function() {
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 100 + (index * 100));
+    });
+  }
+  
+  const infoSections = document.querySelectorAll('.info-section');
+  if (infoSections.length > 0) {
+    infoSections.forEach(function(section, index) {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      setTimeout(function() {
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        section.style.opacity = '1';
+        section.style.transform = 'translateY(0)';
+      }, 100 + (index * 150));
+    });
   }
 });

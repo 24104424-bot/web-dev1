@@ -1,0 +1,410 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      opacity: 0.9;
+      font-size: 16px;
+    }
+
+    .tabs {
+      display: flex;
+      background: #f8f9fa;
+      border-bottom: 2px solid #e0e0e0;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 18px 20px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      color: #666;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .tab-btn:hover {
+      background: rgba(102, 126, 234, 0.1);
+    }
+
+    .tab-btn.active {
+      color: #667eea;
+      background: white;
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #667eea;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 40px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .form-group input.error,
+    .form-group select.error,
+    .form-group textarea.error {
+      border-color: #ef4444;
+    }
+
+    .error-message {
+      color: #ef4444;
+      font-size: 13px;
+      margin-top: 6px;
+      display: none;
+    }
+
+    .error-message.show {
+      display: block;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      width: 100%;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary {
+      background: #6b7280;
+      color: white;
+      margin-left: 10px;
+    }
+
+    .btn-secondary:hover {
+      background: #4b5563;
+    }
+
+    .success-message {
+      background: #10b981;
+      color: white;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: slideDown 0.4s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .calculator {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .calc-display {
+      background: #1f2937;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: right;
+      font-size: 32px;
+      margin-bottom: 20px;
+      min-height: 70px;
+      word-break: break-all;
+    }
+
+    .calc-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .calc-btn {
+      padding: 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: white;
+      color: #333;
+    }
+
+    .calc-btn:hover {
+      background: #e5e7eb;
+      transform: scale(1.05);
+    }
+
+    .calc-btn.operator {
+      background: #667eea;
+      color: white;
+    }
+
+    .calc-btn.operator:hover {
+      background: #5568d3;
+    }
+
+    .calc-btn.equals {
+      background: #10b981;
+      color: white;
+      grid-column: span 2;
+    }
+
+    .calc-btn.equals:hover {
+      background: #059669;
+    }
+
+    .calc-btn.clear {
+      background: #ef4444;
+      color: white;
+    }
+
+    .calc-btn.clear:hover {
+      background: #dc2626;
+    }
+
+    .todo-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .todo-input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .todo-input {
+      flex: 1;
+      padding: 14px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .todo-input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .todo-list {
+      list-style: none;
+    }
+
+    .todo-item {
+      background: #f8f9fa;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .todo-item:hover {
+      background: #e5e7eb;
+      transform: translateX(5px);
+    }
+
+    .todo-item.completed .todo-text {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+
+    .todo-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .todo-checkbox {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .todo-text {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .todo-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .todo-delete {
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .todo-delete:hover {
+      background: #dc2626;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: #9ca3af;
+    }
+
+    .empty-state-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+
+    .info-card {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .info-card h3 {
+      color: #667eea;
+      margin-bottom: 12px;
+    }
+
+    .info-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      .tabs {
+        flex-wrap: wrap;
+      }
+
+      .tab-btn {
+        flex: 1 1 50%;
+      }
+
+      .tab-content {
+        padding: 20px;
+      }
+
+      .calc-buttons {
+        gap: 8px;
+      }
+
+      .calc-btn {
+        padding: 16px;
+        font-size: 16px;
+      }
+    }
